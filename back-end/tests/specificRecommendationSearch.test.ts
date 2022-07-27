@@ -31,14 +31,15 @@ describe("specific recommendation seatch suite", () => {
   });
 
   it("searches for a recommendation that exists, receives the recommendation", async () => {
-    const recommendation = await recommendationFactory.createRecommendation()
+    const recommendation = await recommendationFactory.createRecommendation();
     const id = recommendation.id;
-    const response = await supertest(app).get(`/recommendations/${id}`)
+    const response = await supertest(app).get(`/recommendations/${id}`);
     const searchedRecommendation = response.body;
     expect(searchedRecommendation).toEqual(recommendation);
   });
 });
 
-afterAll( async () => {
+afterAll(async () => {
+  await prisma.$executeRaw`TRUNCATE TABLE recommendations;`;
   await prisma.$disconnect();
-})
+});

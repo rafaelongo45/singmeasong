@@ -1,7 +1,7 @@
 import supertest from "supertest";
 
 import app from "../src/app.js";
-import { prisma } from "../src/database.js"
+import { prisma } from "../src/database.js";
 import recommendationFactory from "./factories/recommendationFactory.js";
 
 beforeEach(async () => {
@@ -15,15 +15,16 @@ describe("random recommendation search suite", () => {
     expect(statusCode).toBe(404);
   });
 
-  it("searches for a random recommendation, finds a recommendation", async () => { //TODO: Entender melhor essa questão das porcentagens
+  it("searches for a random recommendation, finds a recommendation", async () => {
+    //TODO: Entender melhor essa questão das porcentagens
     await recommendationFactory.createUpTo10Recommendations();
     const response = await supertest(app).get("/recommendations/random");
     const recommendation = response.body;
     expect(recommendation).not.toBeNull();
   });
-
 });
 
 afterAll(async () => {
+  await prisma.$executeRaw`TRUNCATE TABLE recommendations;`;
   await prisma.$disconnect();
-})
+});
