@@ -40,18 +40,16 @@ async function createUpTo10Recommendations(){
   const prefixArr = ["https://youtu.be/", "https://www.youtube.com/", "www.youtube.com/", "youtu.be/"];
   const randomYtURL = prefixArr.sort(randomizer)[0]
   const randomNumber = Math.ceil(Math.random() * 10);
-  const randomScore = Math.ceil((Math.random() - 0.7) * 10);
   const data = [];
   for(let i = 0; i < randomNumber; i ++){
     data.push(
       {
         "name": faker.name.findName(),
         "youtubeLink": randomYtURL + faker.name.findName(),
-        "score": randomScore
+        "score": Math.ceil((Math.random() - 0.7) * 10)
       }
     )
   };
-
   await prisma.recommendation.createMany({
     data
   });
