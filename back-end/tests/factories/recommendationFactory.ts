@@ -46,7 +46,7 @@ async function createRecommendationBadScore() {
   return recommendation;
 }
 
-async function createUpTo10Recommendations() {
+async function createUpTo11Recommendations() {
   const prefixArr = [
     "https://youtu.be/",
     "https://www.youtube.com/",
@@ -54,7 +54,7 @@ async function createUpTo10Recommendations() {
     "youtu.be/",
   ];
   const randomYtURL = prefixArr.sort(randomizer)[0];
-  const randomNumber = Math.ceil(Math.random() * 10);
+  const randomNumber = Math.ceil(Math.random() * 10 + 1);
   const data = [];
   for (let i = 0; i < randomNumber; i++) {
     data.push({
@@ -73,7 +73,7 @@ async function createUpTo10Recommendations() {
 const recommendationFactory = {
   createRecommendation,
   createRecommendationBadScore,
-  createUpTo10Recommendations,
+  createUpTo11Recommendations,
 };
 
 export default recommendationFactory;

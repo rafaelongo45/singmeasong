@@ -10,7 +10,7 @@ beforeEach(async () => {
 describe("recommendation search suite", () => {
   it("searches for the last 10 recommendations, finds all of them", async () => {
     const recommendationsLength =
-      await recommendationFactory.createUpTo10Recommendations();
+      await recommendationFactory.createUpTo11Recommendations();
     const response = await supertest(app).get("/recommendations");
     const recommendations = response.body;
     expect(recommendations).toHaveLength(recommendationsLength);

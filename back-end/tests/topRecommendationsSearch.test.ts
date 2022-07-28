@@ -29,7 +29,7 @@ describe("top recommendations search suite", () => {
 
   it("searches for the top random ammount recommendations with recommendations registered, receives ordered recommendations", async () => {
     const randomAmmount =
-      await recommendationFactory.createUpTo10Recommendations();
+      await recommendationFactory.createUpTo11Recommendations();
     const response = await supertest(app).get(
       `/recommendations/top/${randomAmmount}`
     );
@@ -42,7 +42,7 @@ describe("top recommendations search suite", () => {
 
   it("searches for the top random ammount recommendations with recommendations registered, receives the correct ammount of recommendations", async () => {
     const randomAmmount =
-      await recommendationFactory.createUpTo10Recommendations();
+      await recommendationFactory.createUpTo11Recommendations();
     const response = await supertest(app).get(
       `/recommendations/top/${randomAmmount}`
     );
