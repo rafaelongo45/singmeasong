@@ -1,4 +1,4 @@
-import { recommendationRepository } from "../repositories/recommendationRepository.js";
+import recommendationRepository from "../repositories/recommendationRepository.js";
 import testsRepository from "../repositories/testsRepository.js";
 import { CreateRecommendationData } from "./recommendationsService.js";
 
