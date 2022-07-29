@@ -18,7 +18,7 @@ describe("top recommendations search suite", () => {
     expect(body).toHaveLength(0);
   });
 
-  it("searches for top recommendations, but sends a string instead of a number, receives code 500", async () => {
+  it("searches for top recommendations, but sends a string to the url instead of a number, receives code 500", async () => {
     const ammount = "ishouldn'tbehere";
     const response = await supertest(app).get(
       `/recommendations/top/${ammount}`

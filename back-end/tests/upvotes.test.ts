@@ -19,7 +19,7 @@ describe("upvote suite", () => {
     expect(statusCode).toBe(404);
   });
 
-  it("upvotes a link sending a string instead of a number, receives code 500", async () => {
+  it("upvotes a link sending a string to the url instead of a number, receives code 500", async () => {
     const string = "ishouldn'tbehere";
     const response = await supertest(app).post(
       `/recommendations/${string}/upvote`

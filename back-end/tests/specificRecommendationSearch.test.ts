@@ -16,14 +16,7 @@ describe("specific recommendation seatch suite", () => {
     expect(statusCode).toBe(404);
   });
 
-  it("searches for a recommendation sending a string instead of a number", async () => {
-    const id = "ishouldn'tbehere";
-    const response = await supertest(app).get(`/recommendations/${id}`);
-    const statusCode = response.statusCode;
-    expect(statusCode).toBe(500);
-  });
-
-  it("searches for a non existing recommendation sending a string instead of a number", async () => {
+  it("searches for a recommendation sending a string to the url instead of a number", async () => {
     const id = "ishouldn'tbehere";
     const response = await supertest(app).get(`/recommendations/${id}`);
     const statusCode = response.statusCode;

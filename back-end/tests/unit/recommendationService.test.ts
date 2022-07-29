@@ -201,7 +201,7 @@ describe("find recommendation unit test suite", () => {
     jest.spyOn(recommendationRepository, 'findAll').mockImplementation((): any => {
       return []
     })
-    const promise =  recommendationService.getRandom();
+    const promise = recommendationService.getRandom();
     expect(promise).rejects.toEqual({ type: "not_found", message:"" })
   })
 })

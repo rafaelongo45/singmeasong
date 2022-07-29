@@ -53,8 +53,8 @@ describe("Recommendation creation suite", () => {
 
   it("creates a recommendation without sending a link, receives code 422", async () => {
     const link = {
-      name: "",
-      youtubeLink: faker.internet.domainName(),
+      name: faker.name.findName(),
+      youtubeLink: "",
     };
 
     const response = await supertest(app).post("/recommendations").send(link);

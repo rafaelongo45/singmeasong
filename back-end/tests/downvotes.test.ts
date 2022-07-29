@@ -19,7 +19,7 @@ describe("downvote suite", () => {
     expect(statusCode).toBe(404);
   });
 
-  it("downvotes a link sending a string instead of a number, receives code 500", async () => {
+  it("downvotes a link sending a string to the url instead of a number, receives code 500", async () => {
     const string = "ishouldn'tbehere";
     const response = await supertest(app).post(
       `/recommendations/${string}/downvote`
