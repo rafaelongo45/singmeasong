@@ -14,10 +14,11 @@ Cypress.Commands.add("badScoreRecommendation", () => {
   const randomYtURL = prefixArr.sort(randomizer)[0];
   const data = {
     name: faker.name.findName(),
-    youtubeLink: randomYtURL + faker.name.findName(),
+    youtubeLink: "https://www.youtube.com/watch?v=YR_wIb_n4ZU&list=RDYR_wIb_n4ZU&start_radio=1&ab_channel=Claranon",
     score: -5
   };
   cy.request("POST", "http://localhost:5000/recommendations/many", data)
+  return cy.wrap(data);
 })
 
 Cypress.Commands.add("createRecommendationValidLink", () => {

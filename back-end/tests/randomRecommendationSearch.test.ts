@@ -16,7 +16,6 @@ describe("random recommendation search suite", () => {
   });
 
   it("searches for a random recommendation, finds a recommendation", async () => {
-    //TODO: Entender melhor essa questão das porcentagens
     await recommendationFactory.createUpTo11Recommendations();
     const response = await supertest(app).get("/recommendations/random");
     const recommendation = response.body;

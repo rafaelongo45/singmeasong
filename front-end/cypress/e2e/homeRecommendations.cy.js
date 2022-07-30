@@ -43,6 +43,30 @@ describe('recommendation creation suite', () => {
       expect(alert).to.contains('Error creating recommendation!')
     })  
   });
+
+  it('creates a recommendation sending a name but no link', () => {
+    const recommendation = {
+      name: faker.name.findName(),
+    }
+    cy.visit(URL);
+    cy.get(".nameCreate").type(recommendation.name);
+    cy.get(".buttonCreate").click();
+    cy.on("window:alert", (alert) => {
+      expect(alert).to.contains('Error creating recommendation!')
+    })  
+  });
+
+  it('creates a recommendation sending a link but no name', () => {
+    const recommendation = {
+      link: faker.internet.domainName()
+    }
+    cy.visit(URL);
+    cy.get(".linkCreate").type(recommendation.link);
+    cy.get(".buttonCreate").click();
+    cy.on("window:alert", (alert) => {
+      expect(alert).to.contains('Error creating recommendation!')
+    })  
+  });
 });
 
 describe("vote recommendation suite", () => {
@@ -61,7 +85,7 @@ describe("vote recommendation suite", () => {
       cy.getRecommendationByName(name);
       cy.get('.upvote').click();
     });
-
+    
     cy.get('@recommendation').then((recommendation) => {
       cy.get('.score').should('have.text', (recommendation.score + 1).toString());
     })

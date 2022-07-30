@@ -12,4 +12,10 @@ describe("navbar suite", () => {
     cy.get(".randomButton").click();
     cy.url().should("equal", "http://localhost:3000/random");
   })
+  
+  it("clicks on home button, redirects to home", () => {
+    cy.visit(URL + "/random");
+    cy.get(".homeButton").click();
+    cy.url().should("equal", "http://localhost:3000/");
+  })
 })
