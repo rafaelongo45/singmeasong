@@ -5,7 +5,7 @@ describe("random recommendations suite", () => {
     cy.deleteRecommendations();
   });
 
-  it("creates a recommendation, it should exist", () => {
+  it("receives a recommendation, it should exist", () => {
     cy.createRecommendationValidLink();
     cy.createRecommendationValidLink();
     cy.createRecommendationValidLink();

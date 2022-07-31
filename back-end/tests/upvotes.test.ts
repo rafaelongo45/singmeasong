@@ -28,7 +28,7 @@ describe("upvote suite", () => {
     expect(statusCode).toBe(500);
   });
 
-  it("upvotes an existing link, receives code's previous score plus one", async () => {
+  it("upvotes an existing link, receives recomendation's previous score plus one", async () => {
     const recommendation = await recommendationFactory.createRecommendation();
     const id = recommendation.id;
     const previousScore = recommendation.score;
