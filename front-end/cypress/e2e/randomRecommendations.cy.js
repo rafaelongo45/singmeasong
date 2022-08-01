@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 const URL = "http://localhost:3000/random";
 
 describe("random recommendations suite", () => {

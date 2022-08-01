@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 const URL = "http://localhost:3000";
 
 describe("navbar suite", () => {
